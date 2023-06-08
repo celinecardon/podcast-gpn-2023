@@ -1,0 +1,196 @@
+audio::-webkit-media-controls {
+    display: none;
+  }
+
+  audio::-webkit-media-controls-enclosure {
+    display: none;
+  }
+
+  audio::-webkit-media-controls-panel {
+    display: none;
+  }
+
+body{
+    margin: 20px auto;
+    color: grey;
+    
+}
+
+img{
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    max-width:initial;
+    z-index: 1;
+}
+img {transition: .5s ease all; width: 100%; object-fit:cover;}
+.pic:hover img {
+  transform: scale(1.02);
+}
+
+h1{
+    font-size: 2em;
+}
+
+button{
+    border:none;
+    background-color: black;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.top-header{
+    width: 100%;
+    height: 120px;
+    position: fixed;
+    top:0;     
+    background: #fff;
+    padding: 0px;
+    padding-left: 20px;
+    color: black;
+
+    border-bottom: 3px solid;
+
+    text-align: left;
+    font-family: sans-serif;
+    font-size: 1.4em;
+    font-size: clamp(1rem, 0.2rem + 1.3333vw, 1.4rem);
+    align-items: center;
+
+    z-index: 999;
+}
+
+.top-header ::before{
+    /* content: url(media/logo.png); */
+    display:inline-block;
+    height:75px;
+    width:100px;
+    margin-right: 5px;
+    margin-left: -10px;
+    content: "";
+    background:url(media/logo.png) no-repeat 0 0;
+    background-size: 100px 75px;
+}
+
+.pic{
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.caption{
+    font-family: sans-serif;
+    color: grey;
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.pic:hover .caption{
+    color: black;
+}
+
+.grid {
+    margin-top: 60px;
+    margin-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 10px;
+    row-gap: 20px;
+    padding: 20px;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+
+  }
+  
+  @media screen and (min-width: 601px) and (max-width: 1024px) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  @media screen and (min-width: 1025px) {
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+  
+  
+
+  #mediaControlBar {
+    width:100%;
+    position: fixed;
+    z-index: 999;
+    bottom: 0;
+    left: 0;
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: inline-block;  
+    font-size: 1rem;
+    color: black;
+    font-family: bold, sans-serif;
+
+  }
+  
+  #timeline {
+    position: absolute;
+    top: 0px;
+    left: 0; /* Adjust the left position to align with the control bar */
+    right: 0; /* Adjust the right position to align with the control bar */
+    height: 3px;
+    background-color: #f0f0f0;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  #progress {
+    height: 3px;
+    background-color: black;
+    width: 0;
+  }  
+  
+  
+  #controls {
+    margin: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    gap: 10px;
+  }
+
+  #timeDisplay{
+    font-weight: 100;
+    color: grey;
+  }
+
+
+  #audioTitle{
+    font-weight: 600;
+    font-family: bold, sans-serif;
+    margin-bottom: 5px;
+  }
+ 
+  
+  #playPauseButton::before {
+    content: '\25B6';
+  }
+  
+  #playPauseButton.paused::before {
+    content: '\23F8';
+  }
+  
+  #skipBackwardButton::before {
+    content: '\2190';
+  }
+  
+  #skipForwardButton::before {
+    content: '\2192';
+  }
+  

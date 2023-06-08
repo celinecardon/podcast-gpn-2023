@@ -172,6 +172,12 @@
   </post> 
     </main>
 
+    <div id="controls">
+      <!-- <button id="skipBackwardButton" onclick="skipBackward()"></button> -->
+      <button id="playPauseButton" onclick="togglePlayPause()" class="paused"></button>
+
+      <!-- <button id="skipForwardButton" onclick="skipForward()"></button> -->
+    </div>
     <div id="mediaControlBar">
       <div id="timeline">
         <div id="progress"></div>
@@ -179,11 +185,6 @@
       <div id="audioTitle"></div>
       <div id="timeDisplay">
         <span id="currentTime">00:00</span> / <span id="totalTime">00:00</span>
-      </div>
-      <div id="controls">
-        <button id="skipBackwardButton" onclick="skipBackward()"></button>
-        <button id="playPauseButton" class="paused" onclick="togglePlayPause()"></button>
-        <button id="skipForwardButton" onclick="skipForward()"></button>
       </div>
 
     </div>
@@ -195,15 +196,22 @@
         var isPlaying = false;
       
         function togglePlayPause() {
-          if (isPlaying) {
-            audio.pause();
-            playPauseButton.textContent = "Play";
-          } else {
+          if (audio.paused) {
             audio.play();
-            playPauseButton.textContent = "Pause";
+            playPauseButton.src = "media/pause.svg";
+            playPauseButton.classList.remove("paused");
+            playPauseButton.classList.add("play");
+
+          } else {
+            audio.pause();
+            playPauseButton.src = "media/play.svg";
+            playPauseButton.classList.add("paused");
+            playPauseButton.classList.remove("play");
+
           }
-          isPlaying = !isPlaying;
         }
+          isPlaying = !isPlaying;
+      
       
         function skipBackward() {
           audio.currentTime -= 10;

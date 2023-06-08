@@ -1,12 +1,3 @@
-document.addEventListener("DOMContentLoaded", function() {
-  var masonryContainer = document.getElementById("masonry-container");
-  var masonry = new Masonry(masonryContainer, {
-    itemSelector: ".pic",
-    columnWidth: ".pic",
-    gutter: 20
-  });
-});
-
 function playSound(soundFile, title) {
   var audio = document.getElementById("audioPlayer");
   var playPauseButton = document.getElementById("playPauseButton");
@@ -40,7 +31,7 @@ function formatTime(time) {
   return minutes.toString().padStart(2, "0") + ":" + seconds.toString().padStart(2, "0");
 }
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keypressed", function(event) {
   if (event.code === "Space") {
     togglePlayPause();
   } else if (event.code === "ArrowLeft") {

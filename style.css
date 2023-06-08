@@ -37,8 +37,7 @@ h1{
 button{
     border:none;
     background-color: black;
-    color: #fff;
-    border-radius: 10px;
+    color: #f0f0f0;
     text-align: center;
     font-size: 0.9rem;
 }
@@ -95,7 +94,7 @@ button{
 
 .grid {
     margin-top: 60px;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 10px;
@@ -127,7 +126,7 @@ button{
   #mediaControlBar {
     width:100%;
     position: fixed;
-    z-index: 999;
+    z-index: 998;
     bottom: 0;
     left: 0;
     background-color: #f0f0f0;
@@ -177,20 +176,36 @@ button{
     margin-bottom: 5px;
   }
  
+  #playPauseButton{
+    display: block;
+position: fixed;
+width: 30px;
+height: auto;
+align-content: center;
+    right: 20px;
+    bottom: 0;
+    z-index: 999;
+    background-color: #f0f0f0;
+  }
+  
+  .paused {
+    background-image: url(media/play.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+content: "";
+  }
+  .play {
+    background-image: url(media/pause.svg);
+    background-repeat: no-repeat;
+    background-size:contain;
+content: "";
+  }
   
   #playPauseButton::before {
-    content: '\25B6';
+    content: url(media/pause.svg);
   }
   
   #playPauseButton.paused::before {
-    content: '\23F8';
-  }
-  
-  #skipBackwardButton::before {
-    content: '\2190';
-  }
-  
-  #skipForwardButton::before {
-    content: '\2192';
+    content: url(media/play.svg);
   }
   
